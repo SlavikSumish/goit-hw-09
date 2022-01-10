@@ -39,29 +39,6 @@ function onFormSubmit(e) {
   }
   position = 0;
 
-  //  ============ another variant =============
-
-  // let timerId = setTimeout(function tick() {
-  //   createPromise(position, delay)
-  //     .then(({ position, delay }) => {
-  //       Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-  //       // console.log('promise ok');
-  //     })
-  //     .catch(({ position, delay }) => {
-  //       Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
-  //       // console.log('promise wrong');
-  //     });
-  //   delay = Number(delay) + Number(step);
-  //   if (Number(position) === Number(amount)) {
-  //     return;
-  //   }
-  //   timerId = setTimeout(tick, step);
-  //   position += 1;
-  // }, delay);
-  // position = 1;
-  
-}
-
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
   return new Promise((resolve, reject) => {
