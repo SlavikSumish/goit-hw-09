@@ -25,11 +25,9 @@ function onFormSubmit(e) {
        createPromise(position, delay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-        // console.log('promise ok');
       })
       .catch(({ position, delay }) => {
         Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
-        // console.log('promise wrong');
       });
       delay = Number(delay) + Number(step);
       clearTimeout(idTimeout);
