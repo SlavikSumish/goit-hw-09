@@ -18,17 +18,17 @@ function onFormSubmit(e) {
   if (amount <= 0) {
     return;
   }
-  let delayTimeout = Number(delay); 
-  for (let i = 0; i < amount; i++){
-  const idTimeout =  setTimeout(() => {
-    position += 1;
-       createPromise(position, delay)
-      .then(({ position, delay }) => {
-        Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-      })
-      .catch(({ position, delay }) => {
-        Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
-      });
+  let delayTimeout = Number(delay);
+  for (let i = 0; i < amount; i++) {
+    const idTimeout = setTimeout(() => {
+      position += 1;
+      createPromise(position, delay)
+        .then(({ position, delay }) => {
+          Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        })
+        .catch(({ position, delay }) => {
+          Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
+        });
       delay = Number(delay) + Number(step);
       clearTimeout(idTimeout);
     }, delayTimeout)
@@ -36,6 +36,7 @@ function onFormSubmit(e) {
     
   }
   position = 0;
+}
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
